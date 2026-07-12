@@ -10,6 +10,12 @@ let
 
   topLevelModule = {
     options = {
+      checks = mkOption {
+        type = mkSystemAttrsModule { type = types.unspecified; };
+      };
+      formatter = mkOption {
+        type = mkSystemAttrsModule { type = types.package; };
+      };
       _debug = mkOption {
         type = types.attrs;
       };
