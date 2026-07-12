@@ -1,0 +1,12 @@
+theme = "base16_transparent"
+
+[editor]
+auto-pairs = false
+
+[editor.indent-guides]
+character = "▏"
+render = true
+
+[editor.inline-diagnostics]
+cursor-line = "hint"
+other-lines = "hint"
