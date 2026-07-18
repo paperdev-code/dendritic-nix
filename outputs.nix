@@ -4,7 +4,7 @@ let
   inherit (lib) evalModules filter hasSuffix;
   inherit (lib.filesystem) listFilesRecursive;
 
-  modules = listFilesRecursive ./modules |> filter (file: hasSuffix ".nix" file);
+  modules = listFilesRecursive ./modules |> filter (hasSuffix ".nix");
 
   result = evalModules {
     inherit modules;
