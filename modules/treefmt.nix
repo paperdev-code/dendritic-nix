@@ -2,17 +2,15 @@
   config,
   inputs,
   lib,
-  perSystem,
+  eachSystem,
   ...
 }:
 let
   inherit (lib) mkForce mkOption types;
 
-  treefmtEval = perSystem (pkgs: inputs.treefmt-nix.lib.evalModule pkgs config.treefmt);
+  treefmtEval = eachSystem (pkgs: inputs.treefmt-nix.lib.evalModule pkgs config.treefmt);
 in
 {
-  _class = "flake";
-
   options.treefmt = mkOption {
     type = types.deferredModule;
   };
@@ -20,13 +18,15 @@ in
   config.treefmt = {
     projectRootFile = mkForce "flake.nix";
     programs.nixfmt.enable = true;
+    programs.statix.enable = true;
+    programs.taplo.enable = true;
   };
 
-  config.topLevel.formatter = perSystem (
+  config.topLevel.formatter = eachSystem (
     pkgs: treefmtEval.${pkgs.stdenv.hostPlatform.system}.config.build.wrapper
   );
 
-  config.topLevel.checks = perSystem (pkgs: {
+  config.topLevel.checks = eachSystem (pkgs: {
     formatting = treefmtEval.${pkgs.stdenv.hostPlatform.system}.config.build.check inputs.self;
   });
 }

@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  options,
+  ...
+}:
 let
   inherit (lib) mkOption types genAttrs;
 
@@ -16,6 +21,12 @@ let
       formatter = mkOption {
         type = mkSystemAttrsModule { type = types.package; };
       };
+      nixosConfigurations = mkOption {
+        type = with types; attrsOf types.raw;
+      };
+      packages = mkOption {
+        type = mkSystemAttrsModule { type = types.package; };
+      };
       _debug = mkOption {
         type = types.attrs;
       };
@@ -23,11 +34,9 @@ let
   };
 in
 {
-  _class = "flake";
-
   options.topLevel = mkOption {
     type = types.submodule topLevelModule;
   };
 
-  config.topLevel._debug = { inherit config; };
+  config.topLevel._debug = { inherit config options; };
 }

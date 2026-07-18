@@ -8,8 +8,6 @@ let
   inherit (lib) mkOption types;
 in
 {
-  _class = "flake";
-
   options.nixpkgs = {
     allowUnfree = mkOption {
       type = types.bool;
