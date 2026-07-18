@@ -25,7 +25,7 @@ let
         type = with types; attrsOf types.raw;
       };
       packages = mkOption {
-        type = mkSystemAttrsModule { type = types.package; };
+        type = mkSystemAttrsModule { type = with types; attrsOf package; };
       };
       _debug = mkOption {
         type = types.attrs;

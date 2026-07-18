@@ -1,5 +1,4 @@
 {
-  config,
   eachSystem,
   lib,
   paths,
@@ -10,8 +9,7 @@ let
     filter
     getName
     hasSuffix
-    listToAttrs
-    nameValuePair
+    mkMerge
     ;
 
   inherit (lib.filesystem) listFilesRecursive;
@@ -21,12 +19,14 @@ let
   mkPackage =
     path: pkgs:
     let
-      package = pkgs.callPackage path;
+      package = pkgs.callPackage path { };
     in
-    nameValuePair (getName package) package;
+    {
+      ${(getName package)} = package;
+    };
 
-  packages = packagePaths |> map (path: eachSystem config.systems (mkPackage path)) |> listToAttrs;
+  packages = packagePaths |> map (path: eachSystem (mkPackage path));
 in
 {
-  top-level = { inherit packages; };
+  topLevel.packages = mkMerge packages;
 }
