@@ -5,6 +5,7 @@
       bluetooth
       devving
       hjem
+      locale
       mntdir
       pipewire
       stubs
