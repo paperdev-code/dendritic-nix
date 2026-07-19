@@ -1,0 +1,3 @@
+user.name=jorn
+user.email=git@jorn.software
+init.defaultBranch = main

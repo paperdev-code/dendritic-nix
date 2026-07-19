@@ -1,11 +1,10 @@
+{ paths, ... }:
 {
   modules.git.hjem = this: {
     packages = with this.pkgs; [
       git
     ];
 
-    persistence.directories = [
-      ".gitconfig"
-    ];
+    files.".gitconfig".source = paths.dotfile ".gitconfig";
   };
 }
