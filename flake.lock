@@ -56,6 +56,46 @@
         "type": "github"
       }
     },
+    "noctalia": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1784467111,
+        "narHash": "sha256-txmF897/Z7U7UCyp2+9ZM094hl960+5HBijBEA2f4pE=",
+        "owner": "noctalia-dev",
+        "repo": "noctalia",
+        "rev": "5b2dd916f82fda01dca0721b023bd89a37f2297a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "repo": "noctalia",
+        "type": "github"
+      }
+    },
+    "noctalia-greeter": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1784476498,
+        "narHash": "sha256-h9pfyYOLsBBAm34on/UfFGZlSG6VjanFVeKAm2gsf/M=",
+        "owner": "noctalia-dev",
+        "repo": "noctalia-greeter",
+        "rev": "b0069df8a896a185dc0fc9e698741d17c7e31259",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "repo": "noctalia-greeter",
+        "type": "github"
+      }
+    },
     "preservation": {
       "locked": {
         "lastModified": 1757436102,
@@ -76,6 +116,8 @@
         "disko": "disko",
         "hjem": "hjem",
         "nixpkgs": "nixpkgs",
+        "noctalia": "noctalia",
+        "noctalia-greeter": "noctalia-greeter",
         "preservation": "preservation",
         "systems": "systems",
         "treefmt-nix": "treefmt-nix"

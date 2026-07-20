@@ -1,15 +1,19 @@
-{ config, lib, inputs, ... }:
+{
+  config,
+  lib,
+  ...
+}:
 {
   topLevel.nixosConfigurations.dawnstar = lib.nixosSystem {
     modules = [ config.modules.dawnstar.nixos ];
   };
 
-  modules.dawnstar.nixos = { pkgs, ... }: {
+  modules.dawnstar.nixos = {
     imports = with config.classes.nixos; [
       common
-      cosmic
+      desktop
+      devving
       disko
-      doas
       gaming
       jorn
       nvidia
@@ -120,6 +124,9 @@
 
     # networking
     networking.hostName = "dawnstar";
+
+    # misc
+    services.greetd.settings.default_session.user = "jorn";
 
     # nix
     nixpkgs.config.allowUnfree = true;

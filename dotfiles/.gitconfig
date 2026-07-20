@@ -1,3 +1,6 @@
-user.name=jorn
-user.email=git@jorn.software
-init.defaultBranch = main
+[user]
+name=jorn
+email=git@jorn.software
+
+[init]
+defaultBranch = main

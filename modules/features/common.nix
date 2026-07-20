@@ -3,11 +3,10 @@
   modules.common.nixos = { pkgs, ... }: {
     imports = with config.classes.nixos; [
       bluetooth
-      devving
+      doas
       hjem
       locale
       mntdir
-      pipewire
       stubs
     ];
 
@@ -31,19 +30,10 @@
       defaultEditor = true;
     };
 
-    networking.networkmanager.enable = true;
-
     services.fwupd.enable = true;
-    services.power-profiles-daemon.enable = true;
-    services.upower.enable = true;
   };
 
   modules.common.hjem = {
-    imports = with config.classes.hjem; [
-      firefox
-      ghostty
-    ];
-
     persistence.directories = [
       {
         directory = ".ssh";

@@ -1,0 +1,9 @@
+output "DP-4" {
+	mode "2560x1440@180.000000"
+	position x=0 y=0
+}
+
+output "DP-5" {
+	mode "2560x1440@180.000000"
+	position x=2560 y=0
+}

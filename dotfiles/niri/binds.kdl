@@ -1,0 +1,74 @@
+binds {
+    Mod+Escape  { quit; }
+
+    Mod+Shift+Slash { show-hotkey-overlay; }
+
+    Mod+Return hotkey-overlay-title="Terminal" { spawn "ghostty"; }
+
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-";        }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";        }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";      }
+    
+    XF86AudioPlay  allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioPause allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioStop  allow-when-locked=true { spawn-sh "playerctl stop";       }
+    XF86AudioPrev  allow-when-locked=true { spawn-sh "playerctl previous";   }
+    XF86AudioNext  allow-when-locked=true { spawn-sh "playerctl next";       }
+
+    XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+    
+    Mod+Shift+P { power-off-monitors; }    
+
+    Mod+Q { close-window;  }
+    Mod+C { center-column; }
+
+    Mod+H { focus-column-left;  }
+    Mod+J { focus-window-down;  }
+    Mod+K { focus-window-up;    }
+    Mod+L { focus-column-right; }
+
+    Mod+WheelScrollDown { focus-column-left;  }
+    Mod+WheelScrollUp   { focus-column-right; }
+
+    Mod+Shift+H { move-column-left;  }
+    Mod+Shift+J { move-window-up;    }
+    Mod+Shift+K { move-window-down;  }
+    Mod+Shift+L { move-column-right; }
+
+    Mod+Shift+WheelScrollDown { move-column-left;  }
+    Mod+Shift+WheelScrollUp   { move-column-right; }
+
+    Mod+Alt+H { consume-or-expel-window-left;  }
+    Mod+Alt+J { expel-window-from-column;      }
+    Mod+Alt+K { consume-window-into-column;    }
+    Mod+Alt+L { consume-or-expel-window-right; }
+
+    Mod+Left  { focus-monitor-left;  }
+    Mod+Down  { focus-monitor-down;  }
+    Mod+Up    { focus-monitor-up;    }
+    Mod+Right { focus-monitor-right; }
+
+    Mod+Shift+Left  { move-column-to-monitor-left;  }
+    Mod+Shift+Down  { move-column-to-monitor-down;  }
+    Mod+Shift+Up    { move-column-to-monitor-up;    }
+    Mod+Shift+Right { move-column-to-monitor-right; }
+
+    Mod+Alt+Left  { move-window-to-monitor-left;  }
+    Mod+Alt+Down  { move-window-to-monitor-down;  }
+    Mod+Alt+Up    { move-window-to-monitor-up;    }
+    Mod+Alt+Right { move-window-to-monitor-right; }
+
+    Mod+BracketLeft  { switch-preset-column-width-back; }
+    Mod+BracketRight { switch-preset-column-width;      }
+
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+
+    Mod+Alt+Minus { set-window-height "-10%"; }
+    Mod+Alt+Equal { set-window-height "+10%"; }
+
+    Mod+V     { switch-focus-between-floating-and-tiling; }
+    Mod+Alt+V { toggle-window-floating;                   }
+}

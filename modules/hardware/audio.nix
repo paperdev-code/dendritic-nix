@@ -1,6 +1,6 @@
 { config, ... }:
 {
-  modules.pipewire.nixos = {
+  modules.audio.nixos = {
     security.rtkit.enable = true;
 
     services.pipewire = {
@@ -13,10 +13,10 @@
       wireplumber.enable = true;
     };
 
-    hjem.extraModules = [ config.modules.pipewire.hjem ];
+    hjem.extraModules = [ config.modules.audio.hjem ];
   };
 
-  modules.pipewire.hjem = {
+  modules.audio.hjem = {
     persistence.directories = [
       ".config/pipewire"
       ".config/wireplumber"

@@ -1,0 +1,31 @@
+spawn-at-startup "noctalia"
+
+binds {
+    Mod+Space { spawn "noctalia" "msg" "panel-toggle" "launcher";       }
+    Mod+S     { spawn "noctalia" "msg" "panel-toggle" "control-center"; }
+    Mod+Comma { spawn "noctalia" "msg" "settings-toggle";               }
+    Alt+Tab   { spawn "noctalia" "msg" "window-switcher";               }
+
+    XF86AudioRaiseVolume { spawn "noctalia" "msg" "volume-up";   }
+    XF86AudioLowerVolume { spawn "noctalia" "msg" "volume-down"; }
+    XF86AudioMute        { spawn "noctalia" "msg" "volume-mute"; }
+
+    XF86MonBrightnessUp   { spawn "noctalia" "msg" "brightness-up";   }
+    XF86MonBrightnessDown { spawn "noctalia" "msg" "brightness-down"; }
+}
+
+window-rule {
+    geometry-corner-radius 20
+    clip-to-geometry true
+}
+
+window-rule {
+    match app-id="dev.noctalia.Noctalia"
+    open-floating true
+    default-column-width  { fixed 1080; }
+    default-window-height { fixed 920;  }
+}
+
+debug {
+    honor-xdg-activation-with-invalid-serial
+}

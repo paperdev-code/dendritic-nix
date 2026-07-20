@@ -48,9 +48,11 @@ in
       options.users.users = mkOption {
         type = types.attrsOf (
           types.submodule (
-            thisUser@{ name, ... }: {
-              config.hashedPasswordFile =
-                mkIf thisUser.config.isNormalUser (mkDefault "${this.config.persistence.persistentPath}/passwd-${name}");
+            thisUser@{ name, ... }:
+            {
+              config.hashedPasswordFile = mkIf thisUser.config.isNormalUser (
+                mkDefault "${this.config.persistence.persistentPath}/passwd-${name}"
+              );
             }
           )
         );

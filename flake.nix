@@ -4,6 +4,10 @@
   inputs.hjem.url = "github:feel-co/hjem";
   inputs.hjem.inputs.nixpkgs.follows = "nixpkgs";
   inputs.nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+  inputs.noctalia.url = "github:noctalia-dev/noctalia";
+  inputs.noctalia.inputs.nixpkgs.follows = "nixpkgs";
+  inputs.noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
+  inputs.noctalia-greeter.inputs.nixpkgs.follows = "nixpkgs";
   inputs.preservation.url = "github:nix-community/preservation";
   inputs.systems.url = "github:nix-systems/x86_64-linux";
   inputs.treefmt-nix.url = "github:numtide/treefmt-nix";
