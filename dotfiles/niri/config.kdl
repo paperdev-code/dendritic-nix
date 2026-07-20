@@ -1,3 +1,24 @@
+layout {
+    gaps 4
+    focus-ring { off;     }
+    border     { width 2; }
+}
+
+overview { zoom 0.65; }
+
+cursor { xcursor-theme "phinger-cursors-dark"; }
+
+hotkey-overlay { skip-at-startup; }
+
+prefer-no-csd
+
+input {
+    keyboard {
+        repeat-delay 250
+        repeat-rate 25
+    }
+}
+
 include "binds.kdl"
 include "outputs.kdl"
 include optional=true "noctalia.kdl"

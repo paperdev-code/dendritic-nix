@@ -10,6 +10,7 @@
       brightnessctl
       libnotify
       niri
+      phinger-cursors
       playerctl
       xwayland-satellite
     ];
