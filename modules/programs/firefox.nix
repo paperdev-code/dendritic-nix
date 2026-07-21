@@ -9,6 +9,7 @@
     ];
 
     persistence.directories = [
+      ".mozilla"
       ".config/mozilla/firefox"
       ".cache/mozilla/firefox"
     ];
