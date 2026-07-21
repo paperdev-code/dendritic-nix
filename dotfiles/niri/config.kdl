@@ -1,5 +1,9 @@
 layout {
-    gaps 4
+    always-center-single-column
+
+    gaps 16
+    struts { top 32; bottom 32; }
+
     focus-ring { off;     }
     border     { width 2; }
 }
