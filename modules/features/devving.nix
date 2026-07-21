@@ -20,6 +20,7 @@
     ];
 
     persistence.directories = [
+      ".local/share/direnv"
       {
         directory = ".ssh";
         mode = "0700";
