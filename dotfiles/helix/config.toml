@@ -11,9 +11,7 @@ render = true
 cursor-line = "hint"
 other-lines = "hint"
 
-[editor.whitespace]
+[editor.whitespace.render]
 newline = "none"
-nbsp = "none"
-nnbsp = "none"
 space = "all"
 tab = "all"
