@@ -11,6 +11,11 @@ let
   treefmtEval = eachSystem (pkgs: inputs.treefmt-nix.lib.evalModule pkgs config.treefmt);
 in
 {
+  config.inputs.treefmt-nix = {
+    url = "github:numtide/treefmt-nix";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
   options.treefmt = mkOption {
     type = types.deferredModule;
   };

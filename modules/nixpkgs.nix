@@ -8,6 +8,8 @@ let
   inherit (lib) mkOption types;
 in
 {
+  config.inputs.nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+
   options.nixpkgs = {
     allowUnfree = mkOption {
       type = types.bool;

@@ -19,6 +19,10 @@ let
     ;
 in
 {
+  inputs.preservation = {
+    url = "github:nix-community/preservation";
+  };
+
   modules.persistence.any = {
     options.persistence = {
       directories = mkOption {

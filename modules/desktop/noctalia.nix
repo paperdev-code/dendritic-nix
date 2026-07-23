@@ -5,14 +5,17 @@
   ...
 }:
 {
-  modules.noctalia.nixos = { pkgs, ... }: {
+  inputs = {
+    noctalia.url = "github:noctalia-dev/noctalia";
+    noctalia.inputs.nixpkgs.follows = "nixpkgs";
+    noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
+    noctalia-greeter.inputs.nixpkgs.follows = "nixpkgs";
+  };
+
+  modules.noctalia.nixos = {
     imports = [
       inputs.noctalia.nixosModules.default
       inputs.noctalia-greeter.nixosModules.default
-    ];
-
-    environment.systemPackages = [
-      pkgs.pywalfox-native
     ];
 
     programs.noctalia = {
