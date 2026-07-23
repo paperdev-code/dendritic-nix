@@ -2,10 +2,14 @@ layout {
     always-center-single-column
 
     gaps 16
-    struts { top 32; bottom 32; }
+    struts     { top 32; bottom 32; }
+    focus-ring { off;               }
 
-    focus-ring { off;     }
-    border     { width 2; }
+    border {
+        width 1;
+        active-color "#00C468";
+        inactive-color "#002c2d";
+    }
 }
 
 overview { zoom 0.65; }
