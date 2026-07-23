@@ -18,6 +18,7 @@
       jorn
       nvidia
       persistence
+      scheduler
     ];
 
     # boot
