@@ -3,7 +3,6 @@
   modules.devving.nixos = { pkgs, ... }: {
     programs.direnv.enable = true;
     programs.nix-ld.enable = true;
-    programs.ssh.startAgent = true;
 
     hjem.extraModules = [ config.modules.devving.hjem ];
 

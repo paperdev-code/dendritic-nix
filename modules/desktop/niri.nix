@@ -3,6 +3,7 @@
   modules.niri.nixos = { pkgs, ... }: {
     imports = with config.classes.nixos; [
       audio
+      keyring
       networking
     ];
 
@@ -25,9 +26,6 @@
     };
 
     services.graphical-desktop.enable = true;
-    services.displayManager.sessionPackages = [
-      pkgs.niri
-    ];
 
     security.polkit.enable = true;
 
@@ -47,7 +45,7 @@
         ];
         "org.freedesktop.impl.portal.Access" = "gtk";
         "org.freedesktop.impl.portal.Notification" = "gtk";
-        "ork.freedesktop.impl.portal.Secret" = "None";
+        "ork.freedesktop.impl.portal.Secret" = "gnome-keyring";
       };
     };
 
