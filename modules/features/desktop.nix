@@ -14,6 +14,7 @@
   modules.desktop.hjem = {
     imports = with config.classes.hjem; [
       firefox
+      proton
     ];
   };
 }
