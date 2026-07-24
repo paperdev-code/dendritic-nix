@@ -1,4 +1,8 @@
-{ config, paths, ... }:
+{
+  config,
+  paths,
+  ...
+}:
 {
   modules.niri.nixos = { pkgs, ... }: {
     imports = with config.classes.nixos; [
@@ -56,6 +60,7 @@
 
   modules.niri.hjem = {
     imports = with config.classes.hjem; [
+      environment
       ghostty
     ];
 
