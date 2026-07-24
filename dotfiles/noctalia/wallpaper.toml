@@ -1,0 +1,6 @@
+[wallpaper]
+enabled = true
+fill_mode = "fit"
+
+[wallpaper.default]
+path = "$HOME/.config/noctalia/assets/wallpaper.jpg"
