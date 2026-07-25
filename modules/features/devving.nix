@@ -16,6 +16,7 @@
       git
       helix
       lazygit
+      llm
     ];
 
     persistence.directories = [
