@@ -16,6 +16,7 @@
       vesktop
       firefox
       proton
+      signal
     ];
   };
 }
