@@ -13,6 +13,7 @@
 
   modules.desktop.hjem = {
     imports = with config.classes.hjem; [
+      vesktop
       firefox
       proton
     ];

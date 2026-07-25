@@ -15,10 +15,5 @@
     hjem.users.jorn = config.modules.jorn.hjem;
   };
 
-  modules.jorn.hjem = {
-    imports = with config.classes.hjem; [
-      common
-      vesktop
-    ];
-  };
+  modules.jorn.hjem = { };
 }

@@ -31,6 +31,10 @@
     };
 
     services.fwupd.enable = true;
+
+    hjem.extraModules = [
+      config.modules.common.hjem
+    ];
   };
 
   modules.common.hjem = {
