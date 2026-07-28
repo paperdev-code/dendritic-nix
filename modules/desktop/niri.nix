@@ -17,6 +17,7 @@
       niri
       phinger-cursors
       playerctl
+      wl-clipboard
       xwayland-satellite
     ];
 
