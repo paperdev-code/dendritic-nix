@@ -11,7 +11,10 @@ writeShellApplication {
       exit 1
     fi
     flakeDir="''${2:-.}"
-    doas -u "$USER" nixos-rebuild build --flake "path:$flakeDir#"
-    doas nixos-rebuild "$method" --flake "path:$flakeDir#"
+    storePath=$(nix build \
+      "path:$flakeDir#nixosConfigurations.$(hostname).config.system.build.toplevel" \
+      --print-out-paths \
+      --no-link)
+    doas "$storePath/bin/switch-to-configuration" "$method"
   '';
 }
