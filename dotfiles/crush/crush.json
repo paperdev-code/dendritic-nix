@@ -4,13 +4,6 @@
     "disable_metrics": true,
     "disable_provider_auto_update": true
   },
-  "mcp": {
-    "web-search": {
-      "type": "stdio",
-      "command": "duckduckgo-mcp-server",
-      "args": []
-    }
-  },
   "models": {
     "large": {
       "model": "gemma-4",
