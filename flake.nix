@@ -4,6 +4,8 @@
     disko.inputs.nixpkgs.follows = "nixpkgs";
     hjem.url = "github:feel-co/hjem";
     hjem.inputs.nixpkgs.follows = "nixpkgs";
+    niri.url = "github:niri-wm/niri?ref=v26.04";
+    niri.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     noctalia.url = "github:noctalia-dev/noctalia";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
