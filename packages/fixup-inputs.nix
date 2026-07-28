@@ -5,6 +5,7 @@
 }:
 writeShellApplication {
   name = "fixup-inputs";
+  inheritPath = false;
   runtimeInputs = [
     perl
     nix
