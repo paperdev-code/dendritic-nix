@@ -1,4 +1,9 @@
-{ config, inputs, ... }:
+{
+  config,
+  inputs,
+  paths,
+  ...
+}:
 {
   inputs.llm-agents = {
     url = "github:numtide/llm-agents.nix";
@@ -14,6 +19,9 @@
 
     packages = [
       inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.crush
+      inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.duckduckgo-mcp-server
     ];
+
+    files.".config/crush/crush.json".source = paths.dotfile "crush/crush.json";
   };
 }
