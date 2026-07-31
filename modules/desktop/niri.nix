@@ -19,6 +19,7 @@
       playerctl
       wl-clipboard
       xwayland-satellite
+      yazi
     ];
 
     programs.uwsm = {
@@ -42,6 +43,7 @@
         xdg-desktop-portal-wlr
         xdg-desktop-portal-gtk
         xdg-desktop-portal-gnome
+        xdg-desktop-portal-termfilechooser
       ];
       config.niri = {
         default = [
