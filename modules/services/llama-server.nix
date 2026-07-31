@@ -26,8 +26,10 @@ in
           args = concatStringsSep " " [
             "--host 127.0.0.1"
             "--port 10110"
-            "--models-preset $XDG_CONFIG_HOME/llama-cpp/models.ini"
+            "--models-preset \"$XDG_CONFIG_HOME/llama-cpp/models.ini\""
             "--offline"
+            "--sleep-idle-seconds 600"
+            "--cors-origins \"http://127.0.0.1:10110\""
           ];
         in
         ''
