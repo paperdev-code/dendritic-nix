@@ -12,6 +12,8 @@
 
     services.displayManager.autoLogin.user = "jorn";
 
+    services.openssh.settings.AllowUsers = [ "jorn" ];
+
     hjem.users.jorn = config.modules.jorn.hjem;
   };
 
