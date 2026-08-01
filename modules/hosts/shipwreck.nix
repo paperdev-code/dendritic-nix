@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  inputs,
+  ...
+}:
 {
   topLevel.nixosConfigurations.shipwreck = lib.nixosSystem {
     modules = [ config.modules.shipwreck.nixos ];
@@ -11,6 +16,7 @@
 
   modules.shipwreck.nixos = {
     imports = with config.classes.nixos; [
+      inputs.nixos-hardware.nixosModules.dell-xps-13-9380
       common
       desktop
       jorn
