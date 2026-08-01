@@ -29,4 +29,5 @@ input {
 
 include "binds.kdl"
 include "outputs.kdl"
+include "rules.kdl"
 include optional=true "noctalia.kdl"

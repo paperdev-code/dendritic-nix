@@ -70,5 +70,6 @@
     files.".config/niri/binds.kdl".source = paths.dotfile "niri/binds.kdl";
     files.".config/niri/config.kdl".source = paths.dotfile "niri/config.kdl";
     files.".config/niri/outputs.kdl".source = paths.dotfile "niri/outputs.kdl";
+    files.".config/niri/rules.kdl".source = paths.dotfile "niri/rules.kdl";
   };
 }
