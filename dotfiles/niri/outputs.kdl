@@ -7,3 +7,7 @@ output "DP-5" {
 	mode "2560x1440@180.000000"
 	position x=2560 y=0
 }
+
+output "eDP-1" {
+	scale 1.0
+}
