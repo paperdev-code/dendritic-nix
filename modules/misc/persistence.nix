@@ -155,4 +155,8 @@ in
   modules.stubs.nixos = {
     imports = [ config.modules.persistence.any ];
   };
+
+  modules.stubs.hjem = {
+    imports = [ config.modules.persistence.any ];
+  };
 }
