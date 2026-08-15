@@ -9,6 +9,7 @@ let
 in
 {
   config.inputs.nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+  config.inputs.nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-26.05";
 
   options.nixpkgs = {
     allowUnfree = mkOption {

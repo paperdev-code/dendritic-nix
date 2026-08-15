@@ -1,8 +1,9 @@
+{ inputs, ... }:
 {
   modules.scheduler.nixos = { pkgs, ... }: {
     services.ananicy = {
       enable = true;
-      package = pkgs.ananicy-cpp;
+      package = inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.ananicy-cpp;
       rulesProvider = pkgs.ananicy-rules-cachyos;
     };
     services.scx = {
