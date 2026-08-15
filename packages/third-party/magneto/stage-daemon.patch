@@ -1,0 +1,13 @@
+diff --git a/app/scripts/stage-daemon.mjs b/app/scripts/stage-daemon.mjs
+index ac02281..c4ed9f0 100644
+--- a/app/scripts/stage-daemon.mjs
++++ b/app/scripts/stage-daemon.mjs
+@@ -28,7 +28,7 @@ const buildArgs = ["build", "-p", "magneto-daemon"];
+ if (release) buildArgs.push("--release");
+ execFileSync("cargo", buildArgs, { stdio: "inherit", cwd: workspaceRoot });
+ 
+-const src = join(workspaceRoot, "target", profile, exeName);
++const src = join(workspaceRoot, "target", triple, profile, exeName);
+ const destDir = join(appDir, "src-tauri", "binaries");
+ mkdirSync(destDir, { recursive: true });
+ const dest = join(destDir, isWindows ? `magneto-daemon-${triple}.exe` : `magneto-daemon-${triple}`);
