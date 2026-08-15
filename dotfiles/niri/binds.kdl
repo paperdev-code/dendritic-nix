@@ -18,8 +18,8 @@ binds {
 
     XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
-    
-    Mod+Shift+P { power-off-monitors; }    
+
+    Mod+Shift+P { power-off-monitors; }
 
     Mod+Q { close-window;  }
     Mod+C { center-column; }
@@ -69,6 +69,7 @@ binds {
     Mod+Alt+Minus { set-window-height "-10%"; }
     Mod+Alt+Equal { set-window-height "+10%"; }
 
+    Mod+F     { fullscreen-window;                        }
     Mod+V     { switch-focus-between-floating-and-tiling; }
     Mod+Alt+V { toggle-window-floating;                   }
 }
