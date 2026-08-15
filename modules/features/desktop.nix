@@ -13,10 +13,11 @@
 
   modules.desktop.hjem = {
     imports = with config.classes.hjem; [
-      vesktop
       firefox
+      magneto
       proton
       signal
+      vesktop
     ];
   };
 }
