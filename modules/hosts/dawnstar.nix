@@ -8,7 +8,7 @@
     modules = [ config.modules.dawnstar.nixos ];
   };
 
-  modules.dawnstar.nixos = {
+  modules.dawnstar.nixos = { pkgs, ... }: {
     imports = with config.classes.nixos; [
       common
       desktop
@@ -31,6 +31,8 @@
       "sd_mod"
     ];
 
+    boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    boot.kernelParams = [ /*"mitigations=off"*/ "preempt=full" ];
     boot.kernelModules = [ "kvm-amd" ];
     boot.extraModulePackages = [ ];
 
