@@ -4,10 +4,6 @@
     disko.inputs.nixpkgs.follows = "nixpkgs";
     hjem.url = "github:feel-co/hjem";
     hjem.inputs.nixpkgs.follows = "nixpkgs";
-    llm-agents.url = "github:numtide/llm-agents.nix";
-    llm-agents.inputs.nixpkgs.follows = "nixpkgs";
-    llm-agents.inputs.systems.follows = "systems";
-    llm-agents.inputs.treefmt-nix.follows = "treefmt-nix";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nixos-hardware.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
