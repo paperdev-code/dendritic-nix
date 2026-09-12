@@ -32,7 +32,10 @@
     ];
 
     boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
-    boot.kernelParams = [ /*"mitigations=off"*/ "preempt=full" ];
+    boot.kernelParams = [
+      # "mitigations=off"
+      "preempt=full"
+    ];
     boot.kernelModules = [ "kvm-amd" ];
     boot.extraModulePackages = [ ];
 
