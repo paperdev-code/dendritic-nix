@@ -11,6 +11,7 @@
   modules.gaming.hjem = {
     imports = with config.classes.hjem; [
       minecraft
+      rpcs3
     ];
   };
 }
