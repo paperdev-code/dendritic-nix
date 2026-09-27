@@ -3,7 +3,11 @@ let
   inherit (lib) mkOption types;
 
   topLevelModule = { ... }: {
-    options = { };
+    options = {
+      lib = mkOption {
+        type = types.attrs;
+      };
+    };
   };
 in
 {

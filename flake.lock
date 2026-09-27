@@ -1,5 +1,17 @@
 {
   "nodes": {
+    "dendritic": {
+      "flake": false,
+      "locked": {
+        "path": "lib/dendritic.nix",
+        "type": "path"
+      },
+      "original": {
+        "path": "lib/dendritic.nix",
+        "type": "path"
+      },
+      "parent": []
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1790463110,
@@ -18,6 +30,7 @@
     },
     "root": {
       "inputs": {
+        "dendritic": "dendritic",
         "nixpkgs": "nixpkgs"
       }
     }
