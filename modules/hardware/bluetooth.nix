@@ -1,5 +1,5 @@
 {
-  modules.bluetooth.nixos = {
+  modules.bluetooth.nixos = { pkgs, ... }: {
     hardware.bluetooth = {
       enable = true;
       powerOnBoot = true;
@@ -8,6 +8,7 @@
         General.FastConnectable = true;
         Policy.AutoEnable = true;
       };
+      package = pkgs.bluez-experimental;
     };
 
     persistence.directories = [
