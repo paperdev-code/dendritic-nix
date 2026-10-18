@@ -20,7 +20,7 @@
       recommendedServices.enable = true;
     };
 
-    programs.noctalia-greeter.enable = true;
+    services.displayManager.noctalia-greeter.enable = true;
     programs.dconf.enable = true;
 
     persistence.files = [
