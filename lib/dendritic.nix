@@ -1,6 +1,15 @@
-{ lib, self ? null, ... }:
+{
+  lib,
+  self ? null,
+  ...
+}:
 let
-  inherit (lib) evalModules filter hasSuffix optionals;
+  inherit (lib)
+    evalModules
+    filter
+    hasSuffix
+    optionals
+    ;
   inherit (lib.filesystem) listFilesRecursive;
 
   isNixFile = hasSuffix ".nix";
@@ -11,11 +20,11 @@ let
   topLevelModules = optionals (self != null) (listFilesRecursive ../modules/flake);
 in
 {
-  evalFlake = directory: inputs:
+  mkFlake =
+    directory: inputs:
     let
-      modules = topLevelModules ++ listNixFilesRecursive directory;
       result = evalModules {
-        inherit modules;
+        modules = topLevelModules ++ (listNixFilesRecursive directory);
         class = "flake";
         specialArgs.inputs = inputs;
       };
