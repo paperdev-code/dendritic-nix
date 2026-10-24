@@ -1,6 +1,7 @@
 {
   inputs.nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
-  inputs.systems.url = "github:nix-systems/default";
+  inputs.systems.url = ./systems.nix;
+  inputs.systems.flake = false;
 
   outputs =
     inputs@{ nixpkgs, ... }:
