@@ -1,4 +1,6 @@
 {
+  inputs.hjem.url = "github:feel-co/hjem";
+  inputs.hjem.inputs.nixpkgs.follows = "nixpkgs";
   inputs.nix.url = "github:NixOS/nix?ref=master";
   inputs.nix.flake = false;
   inputs.nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
