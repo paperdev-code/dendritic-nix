@@ -1,6 +1,6 @@
 { config, paths, ... }:
 {
-  modules.helix.hjem = { pkgs, ... }: {
+  modules.programs.helix.hjem = { pkgs, ... }: {
     packages = with pkgs; [
       helix
       nixd
@@ -14,7 +14,7 @@
     files.".config/helix/config.toml".source = paths.dotfile "helix/config.toml";
   };
 
-  modules.terminal.hjem = {
-    imports = [ config.modules.helix.hjem ];
+  modules.programs.terminal.hjem = _: {
+    imports = [ config.modules.programs.helix.hjem ];
   };
 }

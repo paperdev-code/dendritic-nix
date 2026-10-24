@@ -1,6 +1,6 @@
-{ paths, ... }:
+{ config, paths, ... }:
 {
-  modules.ghostty.hjem = { pkgs, ... }: {
+  modules.programs.ghostty.hjem = { pkgs, ... }: {
     packages = [ pkgs.ghostty ];
 
     persistence.directories = [
@@ -9,5 +9,9 @@
     ];
 
     files.".config/ghostty/config.ghostty".source = paths.dotfile "ghostty/config.ghostty";
+  };
+
+  modules.programs.graphical.hjem = _: {
+    imports = [ config.modules.programs.ghostty.hjem ];
   };
 }

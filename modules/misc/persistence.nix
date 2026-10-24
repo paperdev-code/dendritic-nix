@@ -19,7 +19,7 @@ let
     ;
 in
 {
-  modules.persistence.generic = {
+  modules.persistence.generic = _: {
     options.persistence = {
       directories = mkOption {
         type = with types; listOf unspecified;
@@ -132,7 +132,7 @@ in
       };
     };
 
-  modules.persistence.hjem = {
+  modules.persistence.hjem = _: {
     imports = [ config.modules.persistence.generic ];
 
     persistence.directories = [
@@ -152,11 +152,11 @@ in
     ];
   };
 
-  modules.stubs.nixos = {
+  modules.stubs.nixos = _: {
     imports = [ config.modules.persistence.generic ];
   };
 
-  modules.stubs.hjem = {
+  modules.stubs.hjem = _: {
     imports = [ config.modules.persistence.generic ];
   };
 }

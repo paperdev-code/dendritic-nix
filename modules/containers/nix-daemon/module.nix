@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  modules.nix-daemon-container.nixos = { pkgs, ... }: {
+  modules.containers.nix-daemon.nixos = { pkgs, ... }: {
     virtualisation.oci-containers = {
       containers.nix-daemon = {
         image = "nix-daemon:latest";

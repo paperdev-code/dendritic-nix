@@ -1,6 +1,6 @@
 { config, ... }:
 {
-  modules.common.nixos = {
+  modules.common.nixos = _: {
     imports = with config.classes.nixos; [
       stubs
       nix

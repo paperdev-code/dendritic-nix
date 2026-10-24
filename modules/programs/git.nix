@@ -1,12 +1,12 @@
 { config, paths, ... }:
 {
-  modules.git.hjem = { pkgs, ... }: {
+  modules.programs.git.hjem = { pkgs, ... }: {
     packages = [ pkgs.git ];
 
     files.".gitconfig".source = paths.dotfile ".gitconfig";
   };
 
-  modules.terminal.hjem = {
+  modules.programs.terminal.hjem = _: {
     imports = [ config.modules.git.hjem ];
   };
 }

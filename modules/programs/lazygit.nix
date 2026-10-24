@@ -1,6 +1,6 @@
 { config, ... }:
 {
-  modules.lazygit.hjem = { pkgs, ... }: {
+  modules.programs.lazygit.hjem = { pkgs, ... }: {
     packages = [ pkgs.lazygit ];
 
     persistence.files = [
@@ -8,7 +8,7 @@
     ];
   };
 
-  modules.terminal.hjem = {
-    imports = [ config.modules.lazygit.hjem ];
+  modules.programs.terminal.hjem = _: {
+    imports = [ config.modules.programs.lazygit.hjem ];
   };
 }

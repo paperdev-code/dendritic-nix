@@ -3,7 +3,7 @@ let
   inherit (lib) mkOption types;
 in
 {
-  modules.hjem.nixos = this: {
+  modules.hjem.nixos = _: {
     imports = [ inputs.hjem.nixosModules.default ];
     hjem.clobberByDefault = true;
   };

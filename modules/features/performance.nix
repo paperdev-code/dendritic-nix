@@ -1,6 +1,6 @@
 { config, ... }:
 {
-  modules.performance.nixos = {
+  modules.performance.nixos = _: {
     imports = with config.classes.nixos; [
       scheduler
       xanmod

@@ -15,7 +15,7 @@ in
         name = "nix-daemon-podman";
 
         nodes.machine = {
-          imports = [ config.modules.nix-daemon-container.nixos ];
+          imports = [ config.modules.containers.nix-daemon.nixos ];
           virtualisation.oci-containers.backend = "podman";
           virtualisation.diskSize = 8192; # hit out-of-space
           environment.systemPackages = [ pkgs.podman ];

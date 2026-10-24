@@ -1,5 +1,5 @@
 {
-  modules.nix.nixos = {
+  modules.nix.nixos = _: {
     nix.settings = {
       experimental-features = [
         "nix-command"
