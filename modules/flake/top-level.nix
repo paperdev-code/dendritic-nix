@@ -31,6 +31,10 @@ let
       packages = mkOption {
         type = with types; lazyAttrsOf (attrsOf package);
       };
+
+      unfreePackages = mkOption {
+        type = with types; lazyAttrsOf (attrsOf package);
+      };
     };
   };
 in
