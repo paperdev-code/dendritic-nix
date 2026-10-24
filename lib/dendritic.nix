@@ -20,6 +20,8 @@ let
   topLevelModules = optionals (self != null) (listFilesRecursive ../modules/flake);
 in
 {
+  inherit listNixFilesRecursive;
+
   mkFlake =
     directory: inputs:
     let
