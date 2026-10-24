@@ -2,7 +2,7 @@
 let
   inherit (lib) mkOption types;
 
-  topLevelModule = { ... }: {
+  topLevelModule = _: {
     options = {
       checks = mkOption {
         type = with types; lazyAttrsOf (attrsOf package);
@@ -25,7 +25,7 @@ let
       };
 
       nixosModules = mkOption {
-        type = with types; attrsOf deferredModule;
+        type = types.attrs;
       };
 
       packages = mkOption {

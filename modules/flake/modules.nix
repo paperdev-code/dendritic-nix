@@ -1,16 +1,36 @@
-{ lib, ... }:
+{ inputs, lib, ... }:
 let
-  inherit (lib) mapAttrs mkOption types;
+  inherit (inputs.self.lib.dendritic) isLeaf;
+  inherit (lib)
+    isFunction
+    isPath
+    mapAttrs
+    mkOption
+    types
+    ;
 
-  classify =
-    moduleName: className: module:
-    if className == "generic" then module else module // { _class = className; };
+  # a module is a function or path, attrs are namespaces.
+  module = types.deferredModule // {
+    name = "classModule";
+    check = x: isFunction x || isPath x;
+  };
 
-  classifyModules = mapAttrs (moduleName: mapAttrs (classify moduleName));
+  moduleTree = types.attrsOf (types.either module moduleTree);
+
+  classifyModules =
+    tree:
+    tree
+    |> mapAttrs (
+      name: value:
+      if isLeaf value then
+        (if name == "generic" then value else value // { _class = name; })
+      else
+        classifyModules value // { _class = "namespace"; }
+    );
 in
 {
   options.modules = mkOption {
-    type = with types; attrsOf (attrsOf deferredModule);
+    type = moduleTree;
     apply = classifyModules;
   };
 }
