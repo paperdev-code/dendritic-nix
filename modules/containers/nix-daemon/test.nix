@@ -11,8 +11,8 @@ in
         inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.nix-daemon-image.passthru.baseImage;
     in
     {
-      nix-daemon-image = pkgs.testers.nixosTest {
-        name = "nix-daemon-image";
+      nix-daemon-podman = pkgs.testers.nixosTest {
+        name = "nix-daemon-podman";
 
         nodes.machine = {
           imports = [ config.modules.nix-daemon-container.nixos ];
