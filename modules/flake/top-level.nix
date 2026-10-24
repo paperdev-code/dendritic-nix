@@ -20,6 +20,14 @@ let
         type = types.attrs;
       };
 
+      nixosConfigurations = mkOption {
+        type = with types; attrsOf attrs;
+      };
+
+      nixosModules = mkOption {
+        type = with types; attrsOf deferredModule;
+      };
+
       packages = mkOption {
         type = with types; lazyAttrsOf (attrsOf package);
       };
