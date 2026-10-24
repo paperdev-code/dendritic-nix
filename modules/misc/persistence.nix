@@ -37,7 +37,7 @@ in
     in
     {
       imports = [
-        inputs.preservation.nixosModules.default
+        (import inputs.preservation)
         config.modules.persistence.generic
       ];
 
