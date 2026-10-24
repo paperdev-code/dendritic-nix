@@ -39,7 +39,7 @@ let
   };
 in
 {
-  freeformType = with types; attrsOf anything;
+  freeformType = types.attrs;
 
   options.topLevel = mkOption {
     description = "The flake attributes from the schema.";
