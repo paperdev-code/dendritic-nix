@@ -2,6 +2,7 @@
 {
   modules.common.nixos = _: {
     imports = with config.classes.nixos; [
+      locale
       nix
       stubs
     ];
