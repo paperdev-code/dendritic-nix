@@ -1,10 +1,11 @@
 { config, ... }:
 {
   modules.desktop.nixos = _: {
-    imports = with config.classes.nixos.programs; [
-      noctalia
-      noctalia-greeter
-      umbriel
+    imports = with config.classes.nixos; [
+      keyring
+      programs.noctalia
+      programs.noctalia-greeter
+      programs.umbriel
     ];
 
     hjem.extraModules = [ config.modules.desktop.hjem ];
