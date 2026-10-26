@@ -16,9 +16,11 @@
       cpu.amd
       desktop
       hjem
+      gaming
       gpu.nvidia
       persistence
       performance
+      social
       users.default.jorn
     ];
 
