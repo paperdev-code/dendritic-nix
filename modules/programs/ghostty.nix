@@ -1,7 +1,10 @@
-{ paths, ... }:
+{ paths, inputs, ... }:
 {
   modules.programs.ghostty.hjem = { pkgs, ... }: {
-    packages = [ pkgs.ghostty ];
+    packages = [
+      pkgs.ghostty
+      inputs.self.unfreePackages.${pkgs.stdenv.hostPlatform.system}.berkeley-mono
+    ];
 
     persistence.directories = [
       ".config/ghostty"
