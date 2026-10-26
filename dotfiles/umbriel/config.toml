@@ -1,0 +1,157 @@
+[include.optional]
+files = [
+  "noctalia.toml"
+  "dawnstar.toml"
+  # output by nix modules
+  "generated.toml"
+]
+
+[general]
+attach_modal_dialogs = true
+xwayland = true
+xwayland_native_resolution = true
+xwayland_xsettings = true
+
+[layout]
+mode = "scrolling"
+gap = 16
+extent_presets = [0.33, 0.5, 0.67]
+client_maximize = "column"
+new_exists_fullscreen = "floating"
+
+[layout.struts]
+left = 0
+right = 0
+top = 32
+bottom = 32
+
+[layout.scrolling]
+default_extent_fraction = 0.5
+center_underfull_strip = true
+center_focused = "never"
+center_on_overview_select = true
+
+[layout.dwindle]
+preserve_split = false
+new_toward_cursor = true
+
+[layout.master]
+position = "left"
+new_on_top = true
+new_becomes_master = false
+default_width_fraction = 0.60
+
+[layout.tabs]
+default_display = "normal"
+new_tab_position = "after_active"
+wrap_focus = true
+scroll_switches_tabs = true
+middle_click_closes = false
+
+[workspaces]
+empty_above = true
+back_and_forth = true
+
+[overview]
+zoom = 0.5
+scroll_factor_horizontal = 1.0
+scroll_factor_vertical = 1.0
+background_blur = false
+workspace_wallpaper = true
+shortcuts = true
+shortcut_keys = "1234567890"
+
+[screencast]
+disable_dynamic_confirmation = false
+
+[appearance]
+blur.radius = 7
+title_bar.mode = "off"
+
+[colors]
+backdrop = "#000000ff"
+
+[keybinds]
+# essential
+"Mod+Q" = "window-close"
+"Mod+Escape" = "session-quit"
+"Mod+F1" = { action = "shortcuts-inhibit-toggle", allow_when_inhibited = true }
+
+# navigation
+"Mod+Left" = "window-focus-left"
+"Mod+Down" = "window-focus-down"
+"Mod+Up" = "window-focus-up"
+"Mod+Right" = "window-focus-right"
+"Mod+Shift+Left" = "column-move-left"
+"Mod+Shift+Down" = "window-move-down"
+"Mod+Shift+Up" = "window-move-up"
+"Mod+Shift+Right" = "column-move-right"
+
+# window manipulation
+"Mod+Tab" = "window-focus-next"
+"Mod+L" = "window-toggle-floating"
+"Mod+Shift+L" = "window-focus-switch-floating"
+"Mod+O" = "window-toggle-tabbed" 
+"Mod+P" = "window-toggle-pinned"
+"Mod+M" = "window-toggle-maximized-to-edges"
+"Mod+F" = "window-toggle-fullscreen"
+"Mod+Shift+F" = "window-toggle-maximize"
+"Mod+BracketLeft" = "window-modify-primary-extent"
+"Mod+BracketRight" = "window-modify-primary-extent-back"
+"Mod+Shift+BracketLeft" = "window-consume-left"
+"Mod+Shift+BracketRight" = "window-consume-right"
+"Mod+Alt+BracketLeft" = "window-consume-from-left"
+"Mod+Alt+BracketRight" = "window-consume-from-right"
+
+# workspaces
+"Mod+1" = "workspace-switch:1"
+"Mod+2" = "workspace-switch:2"
+"Mod+3" = "workspace-switch:3"
+"Mod+4" = "workspace-switch:4"
+"Mod+5" = "workspace-switch:5"
+"Mod+6" = "workspace-switch:6"
+"Mod+7" = "workspace-switch:7"
+"Mod+8" = "workspace-switch:8"
+"Mod+9" = "workspace-switch:9"
+"Mod+Shift+1" = "window-move-to-workspace:1"
+"Mod+Shift+2" = "window-move-to-workspace:2"
+"Mod+Shift+3" = "window-move-to-workspace:3"
+"Mod+Shift+4" = "window-move-to-workspace:4"
+"Mod+Shift+5" = "window-move-to-workspace:5"
+"Mod+Shift+6" = "window-move-to-workspace:6"
+"Mod+Shift+7" = "window-move-to-workspace:7"
+"Mod+Shift+8" = "window-move-to-workspace:8"
+"Mod+Shift+9" = "window-move-to-workspace:9"
+
+# scratchpad
+"Mod+Shift+S" = "scratchpad-toggle"
+"Mod+Control+S" = "window-toggle-scratchpad"
+
+# cursor tweaks
+"Mod+WheelUp" = "window-focus-left"
+"Mod+WheelDown" = "window-focus-right"
+"Mod+Shift+Tab" = "overview-toggle"
+
+[hot_corners.top_left]
+enabled = true
+action = "overview-open"
+
+[[window_rule]]
+blur = true
+
+[[window_rule]]
+match.app_id = "^dev.noctalia.UmbrielSharePicker$"
+default_floating = true
+default_floating_size_px = { width = 800, height = 600 }
+
+[[window_rule]]
+match.title = "^(Picture-in-Picture|Picture in picture)$"
+default_floating = true
+default_maximize = false
+default_position = { x = 20, y = 20, anchor = "bottom_right" }
+
+[[window_rule]]
+match.title = "^notificationtoasts_.+_desktop"
+default_position = { x = 0, y = 0, anchor = "bottom_right" }
+default_focused = false
+default_pinned = true
