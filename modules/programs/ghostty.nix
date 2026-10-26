@@ -1,4 +1,4 @@
-{ config, paths, ... }:
+{ paths, ... }:
 {
   modules.programs.ghostty.hjem = { pkgs, ... }: {
     packages = [ pkgs.ghostty ];
@@ -11,7 +11,7 @@
     files.".config/ghostty/config.ghostty".source = paths.dotfile "ghostty/config.ghostty";
   };
 
-  modules.programs.graphical.hjem = _: {
-    imports = [ config.modules.programs.ghostty.hjem ];
+  modules.programs.umbriel.hjem = _: {
+    programs.umbriel.settings.keybinds."Mod+Enter" = "spawn:ghostty +new-window";
   };
 }

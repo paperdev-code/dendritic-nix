@@ -1,4 +1,3 @@
-{ config, ... }:
 {
   modules.programs.firefox.hjem = { pkgs, ... }: {
     packages = [ pkgs.firefox ];
@@ -8,9 +7,5 @@
       ".config/mozilla/firefox"
       ".mozilla"
     ];
-  };
-
-  modules.programs.graphical.hjem = _: {
-    imports = [ config.modules.firefox.hjem ];
   };
 }
