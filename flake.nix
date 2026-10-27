@@ -3,6 +3,9 @@
   inputs.disko.inputs.nixpkgs.follows = "nixpkgs";
   inputs.hjem.url = "github:feel-co/hjem";
   inputs.hjem.inputs.nixpkgs.follows = "nixpkgs";
+  inputs.llm-agents.url = "github:numtide/llm-agents.nix";
+  inputs.llm-agents.inputs.nixpkgs.follows = "nixpkgs";
+  inputs.llm-agents.inputs.systems.follows = "systems";
   inputs.nix.url = "github:NixOS/nix?ref=master";
   inputs.nix.flake = false;
   inputs.nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
