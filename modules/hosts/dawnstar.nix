@@ -12,8 +12,10 @@
   modules.hosts.dawnstar.nixos = _: {
     imports = with config.classes.nixos; [
       inputs.disko.nixosModules.disko
+      audio
       boot
       cpu.amd
+      common
       desktop
       hjem
       gaming
