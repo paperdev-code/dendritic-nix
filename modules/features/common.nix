@@ -2,6 +2,7 @@
 {
   modules.common.nixos = _: {
     imports = with config.classes.nixos; [
+      doas
       locale
       nix
       stubs
@@ -14,8 +15,10 @@
 
   modules.common.hjem = _: {
     imports = with config.classes.hjem.programs; [
-      helix
       git
+      helix
+      lazygit
+      proton-suite
     ];
   };
 }
