@@ -1,9 +1,7 @@
 [include.optional]
 files = [
-  "noctalia.toml"
-  "dawnstar.toml"
   # output by nix modules
-  "generated.toml"
+  "generated.toml",
 ]
 
 [general]
@@ -12,12 +10,16 @@ xwayland = true
 xwayland_native_resolution = true
 xwayland_xsettings = true
 
+[input.keyboard]
+repeat_rate = 25
+repeat_delay = 250
+
 [layout]
 mode = "scrolling"
 gap = 16
 extent_presets = [0.33, 0.5, 0.67]
 client_maximize = "column"
-new_exists_fullscreen = "floating"
+new_exits_fullscreen = "floating"
 
 [layout.struts]
 left = 0
@@ -66,7 +68,9 @@ disable_dynamic_confirmation = false
 
 [appearance]
 blur.radius = 7
-title_bar.mode = "off"
+
+[appearance.title_bar]
+mode = "off"
 
 [colors]
 backdrop = "#000000ff"
@@ -91,13 +95,13 @@ backdrop = "#000000ff"
 "Mod+Tab" = "window-focus-next"
 "Mod+L" = "window-toggle-floating"
 "Mod+Shift+L" = "window-focus-switch-floating"
-"Mod+O" = "window-toggle-tabbed" 
+"Mod+O" = "column-toggle-tabbed"
 "Mod+P" = "window-toggle-pinned"
-"Mod+M" = "window-toggle-maximized-to-edges"
+"Mod+M" = "window-toggle-maximize-to-edges"
 "Mod+F" = "window-toggle-fullscreen"
 "Mod+Shift+F" = "window-toggle-maximize"
-"Mod+BracketLeft" = "window-modify-primary-extent"
-"Mod+BracketRight" = "window-modify-primary-extent-back"
+"Mod+BracketLeft" = "window-cycle-primary-extent"
+"Mod+BracketRight" = "window-cycle-primary-extent-back"
 "Mod+Shift+BracketLeft" = "window-consume-left"
 "Mod+Shift+BracketRight" = "window-consume-right"
 "Mod+Alt+BracketLeft" = "window-consume-from-left"
