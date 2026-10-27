@@ -23,6 +23,11 @@ let
         formatter.nix = mkFormatter pkgs.nixfmt {
           includes = "*.nix";
         };
+
+        formatter.toml = mkFormatter pkgs.taplo {
+          options = [ "fmt" ];
+          includes = "*.toml";
+        };
       };
     };
 in
