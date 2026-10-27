@@ -15,6 +15,6 @@
   };
 
   modules.programs.umbriel.hjem = _: {
-    programs.umbriel.settings.keybinds."Mod+Enter" = "spawn:ghostty +new-window";
+    programs.umbriel.settings.keybinds."Mod+Return" = "spawn:ghostty +new-window";
   };
 }
