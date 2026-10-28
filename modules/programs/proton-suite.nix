@@ -35,7 +35,10 @@
     };
 
     persistence.directories = [
-      ".local/share/proton-pass-cli/.session"
+      {
+        directory = ".local/share/proton-pass-cli/.session";
+        mode = "700";
+      }
       ".config/Proton Pass/"
       ".config/Proton Mail"
     ];
