@@ -16,19 +16,47 @@ let
 
   treefmtPkg =
     pkgs:
-    pkgs.treefmt.withConfig {
-      settings = {
-        tree-root-file = "flake.nix";
+    let
+      treefmtPkg = pkgs.treefmt.withConfig {
+        settings = {
+          tree-root-file = "flake.nix";
 
-        formatter.nix = mkFormatter pkgs.nixfmt {
-          includes = "*.nix";
-        };
+          formatter.md = mkFormatter pkgs.mdformat {
+            includes = "*.md";
+          };
 
-        formatter.toml = mkFormatter pkgs.taplo {
-          options = [ "fmt" ];
-          includes = "*.toml";
+          formatter.nix = mkFormatter pkgs.nixfmt {
+            includes = "*.nix";
+          };
+
+          formatter.toml = mkFormatter pkgs.taplo {
+            options = [ "fmt" ];
+            includes = "*.toml";
+          };
         };
       };
+
+      readme = inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.readme;
+
+      updateReadmePkg = pkgs.writeShellApplication {
+        name = "update-readme";
+        runtimeInputs = [
+          pkgs.coreutils
+        ];
+        text = ''
+          [[ -f README.md ]] || exit 0
+          cmp -s "${readme}" README.md && exit 0
+          cat "${readme}" > README.md
+          echo "updated README.md"
+        '';
+      };
+    in
+    pkgs.writeShellApplication {
+      name = "formatter";
+      text = ''
+        ${updateReadmePkg}/bin/update-readme
+        ${treefmtPkg}/bin/treefmt
+      '';
     };
 in
 {
