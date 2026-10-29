@@ -6,6 +6,7 @@
       locale
       nix
       stubs
+      programs.utils
     ];
 
     hjem.extraModules = [
