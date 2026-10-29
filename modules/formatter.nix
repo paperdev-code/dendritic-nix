@@ -21,10 +21,6 @@ let
         settings = {
           tree-root-file = "flake.nix";
 
-          formatter.md = mkFormatter pkgs.mdformat {
-            includes = "*.md";
-          };
-
           formatter.nix = mkFormatter pkgs.nixfmt {
             includes = "*.nix";
           };
