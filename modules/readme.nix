@@ -5,7 +5,7 @@
   ...
 }:
 let
-  inherit (lib) mkBefore mkOption types;
+  inherit (lib) mkOption mkOrder types;
 
   allSystems = import inputs.systems;
   eachSystem = inputs.self.lib.eachSystemWith allSystems inputs.nixpkgs.legacyPackages;
@@ -16,36 +16,45 @@ in
     default = "";
   };
 
-  config.readme = mkBefore ''
-    # Dendritic Nix
+  options.chapters = mkOption {
+    type = with types; attrsOf int;
+    default = inputs.self.lib.utils.enumerate 100 [
+      "intro"
+      "hosts"
+    ];
+    readOnly = true;
+  };
 
-    :construction:
+  config = {
+    readme = mkOrder config.chapters.intro ''
+      # Dendritic Nix
 
-    (screenshot)
-  '';
+      :construction:
+    '';
 
-  config.topLevel.packages = eachSystem (pkgs: {
-    readme = pkgs.writeTextFile {
-      name = "README.md";
-      text = config.readme;
+    topLevel = {
+      packages = eachSystem (pkgs: {
+        readme = pkgs.writeTextFile {
+          name = "README.md";
+          text = config.readme;
 
-      checkPhase = ''
-        ${pkgs.mdformat}/bin/mdformat --check "$out"
-      '';
-    };
-  });
+          checkPhase = ''
+            formatted="$TMPDIR/result"
+            cp "$out" "$formatted"
+            ${pkgs.mdformat}/bin/mdformat "$formatted"
+            ${pkgs.git}/bin/git --no-pager diff --no-index --color=auto -- "$out" "$TMPDIR/result"
+          '';
+        };
+      });
 
-  config.topLevel.checks = eachSystem (pkgs: {
-    readme-diff =
-      pkgs.runCommand "readme-diff"
-        {
-          nativeBuildInputs = [ pkgs.git ];
-        }
-        ''
+      checks = eachSystem (pkgs: {
+        readme-diff = pkgs.runCommand "readme-diff" { } ''
           generated=${inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.readme}
           current=${../README.md}
-          git --no-pager diff --no-index --color=auto -- $generated $current
+          ${pkgs.git}/bin/git --no-pager diff --no-index --color=auto -- "$generated" "$current"
           touch $out
         '';
-  });
+      });
+    };
+  };
 }

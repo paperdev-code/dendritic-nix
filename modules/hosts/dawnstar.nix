@@ -5,6 +5,21 @@
   ...
 }:
 {
+  readme = lib.mkOrder (config.chapters.hosts + 1) ''
+    ### Dawnstar
+
+    `nixos-rebuild build .#dawnstar`
+
+    My NixOS workstation and daily driver.
+
+    Features:
+
+    - Impermanence using nix preservation and tmpfs.
+    - Umbriel and Noctalia based desktop environment.
+
+    (screenshot)
+  '';
+
   topLevel.nixosConfigurations.dawnstar = lib.nixosSystem {
     modules = [ config.modules.hosts.dawnstar.nixos ];
   };
