@@ -30,6 +30,7 @@
       agents
       audio
       boot
+      bluetooth
       cpu.amd
       common
       desktop
