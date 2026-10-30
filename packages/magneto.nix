@@ -6,6 +6,7 @@
   glib,
   glib-networking,
   gtk3,
+  lib,
   librsvg,
   libayatana-appindicator,
   nodejs,
@@ -88,4 +89,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
     "-p magneto-cli"
     "-p magneto-daemon"
   ];
+
+  meta.license = lib.licenses.gpl3Only;
 })
