@@ -92,7 +92,7 @@ in
           }
           {
             inherit (cfg) directories files;
-            users = this.config.hjem.users |> mapAttrs (_: cfg: cfg.persistence);
+            users = this.config.hjem.users |> mapAttrs (_: cfg: cfg.persistence or { });
           }
         ];
 
