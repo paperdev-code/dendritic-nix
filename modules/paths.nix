@@ -15,6 +15,7 @@ in
   _module.args.paths =
     {
       dotfile = "dotfiles";
+      keys = "keys";
       root = ".";
     }
     |> mapAttrs (_: dir: getPath dir);
