@@ -10,7 +10,7 @@
       ];
     };
 
-    services.openssh.settings.allowUsers = [ "jorn" ];
+    services.openssh.settings.AllowUsers = [ "jorn" ];
 
     hjem.users.jorn = { };
   };
