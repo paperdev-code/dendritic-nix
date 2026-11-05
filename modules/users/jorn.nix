@@ -1,12 +1,16 @@
-{ config, ... }:
+{ config, paths, ... }:
 {
-  modules.users.jorn.nixos = _: {
+  modules.users.jorn.nixos = this: {
     users.users.jorn = {
       description = "Jorn Veken";
       isNormalUser = true;
       extraGroups = [
         "wheel"
         "plugdev"
+      ];
+
+      openssh.authorizedKeys.keyFiles = [
+        (paths.keys "jorn@${this.config.networking.hostName}.pub")
       ];
     };
 
