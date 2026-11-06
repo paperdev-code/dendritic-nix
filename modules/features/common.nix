@@ -4,6 +4,7 @@
     imports = with config.classes.nixos; [
       doas
       locale
+      networking
       nix
       stubs
       programs.utils
