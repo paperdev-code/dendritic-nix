@@ -97,6 +97,10 @@ in
         ];
 
         # machine-id
+        boot.initrd.systemd.tmpfiles.settings.preservation = {
+          "/sysroot${cfg.persistentPath}/etc/machine-id".f.argument = "uninitialized";
+        };
+
         systemd.services."systemd-machine-id-commit" = {
           unitConfig.ConditionPathIsMountPoint = [
             ""
