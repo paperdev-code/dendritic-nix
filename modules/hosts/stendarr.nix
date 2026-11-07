@@ -16,6 +16,7 @@
 
     - Also ephemeral using nix preservation and tmpfs.
     - OpenSSH server for remote configuration.
+    - A TTY dashboard using Zellij.
 
     (silly image)
   '';
@@ -33,6 +34,7 @@
       hardware.blazeSeven
       persistence
       performance
+      services.dashboard
       services.openssh
       stubs
       users.default.jorn
@@ -50,6 +52,18 @@
     ];
 
     networking.hostName = "stendarr";
+
+    services.dashboard.hardware = {
+      keyboard = {
+        path = "/dev/input/by-path/platform-i8042-serio-0-event-kbd";
+        id = "platform-i8042-serio-0";
+      };
+
+      gamepad = {
+        path = "/dev/input/by-id/usb-SU_Technology_Co._Ltd_Game_Controller_7582668A-event-joystick";
+        id = "pci-0000:c4:00.3-usb-0:2:1.0";
+      };
+    };
 
     disko.devices = {
       disk.main = {

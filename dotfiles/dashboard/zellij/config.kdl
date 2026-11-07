@@ -1,0 +1,86 @@
+// -- general --
+// default_cwd
+default_shell "$SHELL"
+on_force_close "quit"
+env { }
+// layout_dir
+// theme_dir
+session_name "dashboard"
+attach_to_session false
+
+// -- keybinds --
+keybinds {
+  normal {
+    bind "Alt h" { MoveFocus "Left"; }
+    bind "Alt l" { MoveFocus "Right"; }
+    bind "Alt k" { MoveFocus "Up"; }
+    bind "Alt j" { MoveFocus "Down"; }
+
+    bind "Alt 1" { GoToPreviousTab; }
+    bind "Alt 2" { GoToNextTab; }
+  }
+}
+
+// -- appearance --
+simplified_ui true
+styled_underlines false
+pane_frames true
+pane_frame_style "titles"
+theme "ansi"
+explicit_theme_hue "dark"
+stacked_pane_list true
+support_kitty_graphics_protocol false
+
+ui {
+  pane_frames {
+    rounded_corners true
+  }
+}
+
+// -- interaction --
+// NOTE: spawns with --layout dashboard
+// default_layout
+auto_layout false
+default_mode "normal"
+visual_bell true
+mouse_mode false
+word_separators "[]{}<>()"
+// mouse_hover_effects
+// mouse_click_through
+// mouse_scroll_resize
+// mouse_hover_tips
+// focus_follows_mouse
+// advanced_mouse_actions
+scroll_mode_sync true
+nested_session_handling "never"
+mirror_session true
+scroll_buffer_size 1000
+stacked_resize true
+// copy_command
+// copy_clipboard
+// copy_on_select
+// scrollback_editor
+// scrollback_lines_to_serialize
+dangerously_enable_paste_buffer_read false
+osc133_command_selection false
+host_notification_protocol "bell"
+show_startup_tips false
+show_release_notes false
+support_kitty_keyboard_protocol false
+
+// -- caching --
+session_serialization false
+pane_viewport_serialization false
+disable_session_metadata true
+// post_command_discovery_hook
+
+// -- web --
+web_server false
+// web_server_ip
+// web_server_port
+// web_server_cert
+// web_server_key
+// enforce_https_on_localhost
+// base_url
+// web_client
+web_sharing "on"
