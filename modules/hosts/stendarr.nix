@@ -51,6 +51,15 @@
       "sdhci_pci"
     ];
 
+    boot.kernelParams = [
+      "video=eDP-1:1920x1080@60"
+    ];
+
+    powerManagement = {
+      cpuFreqGovernor = "powersave";
+      cpufreq.min = 419175;
+    };
+
     networking.hostName = "stendarr";
 
     services.dashboard.hardware = {
