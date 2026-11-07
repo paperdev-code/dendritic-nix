@@ -30,6 +30,7 @@
       boot
       common
       cpu.amd
+      hardware.blazeSeven
       persistence
       performance
       services.openssh
