@@ -29,5 +29,6 @@ Features:
 
 - Also ephemeral using nix preservation and tmpfs.
 - OpenSSH server for remote configuration.
+- A TTY dashboard using Zellij.
 
 (silly image)
