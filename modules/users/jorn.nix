@@ -1,6 +1,6 @@
-{ config, paths, ... }:
+{ config, ... }:
 {
-  modules.users.jorn.nixos = this: {
+  modules.users.jorn.nixos = _: {
     users.users.jorn = {
       description = "Jorn Veken";
       isNormalUser = true;
@@ -8,13 +8,18 @@
         "wheel"
         "plugdev"
       ];
-
-      openssh.authorizedKeys.keyFiles = paths.optional.key "jorn@${this.config.networking.hostName}.pub";
     };
 
     services.openssh.settings.AllowUsers = [ "jorn" ];
 
-    hjem.users.jorn = { };
+    hjem.users.jorn = {
+      persistence.directories = [
+        {
+          directory = ".ssh";
+          mode = "0700";
+        }
+      ];
+    };
   };
 
   modules.users.default.jorn.nixos = _: {

@@ -19,7 +19,6 @@ let
     resolve:
     {
       dotfile = "dotfiles";
-      key = "keys";
       root = ".";
     }
     |> mapAttrs getPath
