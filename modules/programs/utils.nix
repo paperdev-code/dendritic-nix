@@ -10,4 +10,14 @@
       tree
     ];
   };
+
+  modules.programs.utils.hjem = { pkgs, ... }: {
+    packages = with pkgs; [
+      asciinema
+      btop
+      fastfetch
+      ripgrep
+      tree
+    ];
+  };
 }
