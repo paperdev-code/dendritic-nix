@@ -37,6 +37,7 @@ in
       nix
       programs.helix
       programs.utils
+      services.frp.server
     ];
 
     name = "keeper";

@@ -35,6 +35,7 @@
       persistence
       performance
       services.dashboard
+      services.frp.client
       services.openssh
       stubs
       users.default.jorn
@@ -73,6 +74,8 @@
         id = "pci-0000:c4:00.3-usb-0:2:1.0";
       };
     };
+
+    services.frp.client.serverAddr = "lighthouse.jorn.software";
 
     disko.devices = {
       disk.main = {
