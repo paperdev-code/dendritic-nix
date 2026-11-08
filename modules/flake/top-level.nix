@@ -16,6 +16,10 @@ let
         type = with types; lazyAttrsOf package;
       };
 
+      hjemConfigurations = mkOption {
+        type = with types; lazyAttrsOf (attrsOf attrs);
+      };
+
       lib = mkOption {
         type = types.attrs;
       };

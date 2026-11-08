@@ -3,6 +3,7 @@ let
   inherit (lib)
     concatStringsSep
     mapAttrsToList
+    mkDefault
     mkOption
     types
     ;
@@ -36,4 +37,22 @@ in
       };
     };
   };
+
+  modules.hjem-standalone.hjem =
+    this@{ pkgs, ... }:
+    {
+      options.name = mkOption {
+        type = types.str;
+      };
+
+      config = {
+        packages = [
+          inputs.hjem.packages.${pkgs.stdenv.hostPlatform.system}.hjem
+        ];
+
+        clobberFiles = mkDefault true;
+        directory = mkDefault "/home/${this.config.name}";
+        user = mkDefault this.config.name;
+      };
+    };
 }
