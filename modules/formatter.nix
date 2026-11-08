@@ -9,6 +9,7 @@ let
     opts
     // {
       command = "${lib.getBin pkg}/bin/${lib.getName pkg}";
+      excludes = "vendor/*";
     };
 
   allSystems = import inputs.systems;
@@ -20,6 +21,11 @@ let
       treefmtPkg = pkgs.treefmt.withConfig {
         settings = {
           tree-root-file = "flake.nix";
+
+          formatter.deadnix = mkFormatter pkgs.deadnix {
+            options = [ "--edit" ];
+            includes = "*.nix";
+          };
 
           formatter.kdl = mkFormatter pkgs.kdlfmt {
             options = [ "format" ];
