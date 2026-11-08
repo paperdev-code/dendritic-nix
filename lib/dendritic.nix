@@ -1,6 +1,6 @@
 {
   lib,
-  self ? null,
+  topLevel ? false,
   ...
 }:
 let
@@ -22,7 +22,7 @@ let
 
   # To allow this flake to reuse this function, this subdirectory shouldn't be doubly included.
   # When accessed from the flake, as input for another flake, include it.
-  topLevelModules = optionals (self != null) (listFilesRecursive ../modules/flake);
+  topLevelModules = optionals (!topLevel) (listFilesRecursive ../modules/flake);
 in
 {
   inherit isLeaf listNixFilesRecursive;

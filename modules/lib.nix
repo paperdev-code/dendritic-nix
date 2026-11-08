@@ -2,6 +2,7 @@
 {
   topLevel.lib = import ../lib {
     inherit lib;
-    inherit (inputs) self;
+    inherit inputs;
+    topLevel = true;
   };
 }
