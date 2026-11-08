@@ -9,9 +9,7 @@
         "plugdev"
       ];
 
-      openssh.authorizedKeys.keyFiles = [
-        (paths.keys "jorn@${this.config.networking.hostName}.pub")
-      ];
+      openssh.authorizedKeys.keyFiles = paths.optional.key "jorn@${this.config.networking.hostName}.pub";
     };
 
     services.openssh.settings.AllowUsers = [ "jorn" ];
