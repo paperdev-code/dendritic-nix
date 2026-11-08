@@ -32,3 +32,16 @@ Features:
 - A TTY dashboard using Zellij.
 
 (silly image)
+
+### Lighthouse
+
+`(convoluted build command)`
+
+_Not actually a NixOS host!_
+
+Instead, an existing VPS with a managed user named "keeper".
+
+Features:
+
+- Home managed by Hjem.
+- FRP.
