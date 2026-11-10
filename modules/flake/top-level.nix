@@ -2,8 +2,21 @@
 let
   inherit (lib) mkOption types;
 
+  appModule = {
+    type = mkOption {
+      type = types.str;
+      default = "app";
+    };
+
+    program = types.path;
+  };
+
   topLevelModule = _: {
     options = {
+      apps = mkOption {
+        type = with types; lazyAttrsOf (attrsOf (submodule appModule));
+      };
+
       checks = mkOption {
         type = with types; lazyAttrsOf (attrsOf package);
       };
@@ -17,7 +30,7 @@ let
       };
 
       hjemConfigurations = mkOption {
-        type = with types; lazyAttrsOf (attrsOf attrs);
+        type = with types; lazyAttrsOf (attrsOf package);
       };
 
       lib = mkOption {

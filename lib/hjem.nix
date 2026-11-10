@@ -66,5 +66,7 @@ in
       };
     }
     |> evalModules
-    |> (result: mkOutput result.config);
+    |> (result: mkOutput result.config)
+    |> builtins.toJSON
+    |> pkgs.writeText "build.json";
 }
