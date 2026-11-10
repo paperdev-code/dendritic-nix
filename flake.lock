@@ -83,15 +83,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1793333241,
-        "narHash": "sha256-hmlUXxCk6On7Hrop/TyS3//dgI2BLvaN4TEsOq1ma+Y=",
-        "owner": "feel-co",
+        "lastModified": 1794346229,
+        "narHash": "sha256-8zsbNEAIql0edejXsgLJkrsv4mS3HTn07ECcehjdlgw=",
+        "owner": "paperdev-code",
         "repo": "hjem",
-        "rev": "8408642aa3035135fa6d70269dc93e0814e2a4f6",
+        "rev": "03a4c7f7e56dde3bd1ad17ce1ff2b9aff4b6641f",
         "type": "github"
       },
       "original": {
-        "owner": "feel-co",
+        "owner": "paperdev-code",
         "repo": "hjem",
         "type": "github"
       }

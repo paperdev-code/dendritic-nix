@@ -1,7 +1,7 @@
 {
   inputs.disko.url = "github:nix-community/disko?ref=master";
   inputs.disko.inputs.nixpkgs.follows = "nixpkgs";
-  inputs.hjem.url = "github:feel-co/hjem";
+  inputs.hjem.url = "github:paperdev-code/hjem";
   inputs.hjem.inputs.nixpkgs.follows = "nixpkgs";
   inputs.llm-agents.url = "github:numtide/llm-agents.nix";
   inputs.llm-agents.inputs.nixpkgs.follows = "nixpkgs";
