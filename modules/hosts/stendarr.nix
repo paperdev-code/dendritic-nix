@@ -31,7 +31,7 @@
       boot
       common
       cpu.amd
-      hardware.blazeSeven
+      hardware.blaze-seven
       persistence
       performance
       services.dashboard
