@@ -122,6 +122,23 @@
         "type": "github"
       }
     },
+    "minecraft": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1794376041,
+        "narHash": "sha256-U5J39EyPpqAw8aO47WetBREzl2w18GkjlAtLg5EIZgY=",
+        "owner": "infinidoge",
+        "repo": "nix-minecraft",
+        "rev": "c7ab225b64b33d5291622734a5c666ec2665c9b5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "infinidoge",
+        "ref": "master",
+        "repo": "nix-minecraft",
+        "type": "github"
+      }
+    },
     "nix": {
       "flake": false,
       "locked": {
@@ -211,6 +228,7 @@
         "disko": "disko",
         "hjem": "hjem",
         "llm-agents": "llm-agents",
+        "minecraft": "minecraft",
         "nix": "nix",
         "nixpkgs": "nixpkgs",
         "noctalia": "noctalia",

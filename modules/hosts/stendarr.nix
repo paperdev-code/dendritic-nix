@@ -36,6 +36,7 @@
       performance
       services.dashboard
       services.frp.client
+      services.gregtech-nh
       services.openssh
       stubs
       users.default.jorn
