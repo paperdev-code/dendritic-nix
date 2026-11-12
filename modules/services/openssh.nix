@@ -35,8 +35,8 @@
       }
     ];
 
-    networking.firewall.extraCommands = ''
-      iptables -I nixos-fw 1 -p tcp -s 192.168.1.0/24 --dport 2288 -j nixos-fw-accept
+    networking.firewall.extraInputRules = ''
+      ip saddr 192.168.1.0/24 tcp dport 2288 accept
     '';
   };
 }
