@@ -44,6 +44,9 @@
       zswap
     ];
 
+    # provide access to minecraft server management
+    users.users.jorn.extraGroups = [ "minecraft" ];
+
     boot.initrd.availableKernelModules = [
       "nvme"
       "xhci_pci"
