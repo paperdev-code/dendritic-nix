@@ -75,7 +75,7 @@ in
           keyFile = mkDefault "${cfg.stateDir}/tls/frpc.key";
         };
 
-        services.frp.instances.frpc = {
+        services.frp.instances.client = {
           enable = true;
           role = "client";
 
@@ -106,7 +106,7 @@ in
           group = "frp";
         };
 
-        systemd.services.frp-frpc = {
+        systemd.services.frp-client = {
           # note: isolated to it's own network namespace
           # services meant to be exposed must opt in too.
           egress-only = true;
