@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, lib, ... }:
 {
   modules.services.gregtech-nh.nixos =
     this@{ pkgs, ... }:
@@ -49,11 +49,16 @@
       };
 
       systemd.services."minecraft-server-gregtech-nh" = {
+        egress-only = true;
+
         serviceConfig = {
           TimeoutStartSec = 10;
+
           # additional hardening
-          IPAddressDeny = "any"; # FIXME: breaks microsoft auth
-          IPAddressAllow = [ "localhost" ];
+          ProtectSystem = "strict";
+          NoNewPrivileges = true;
+          ReadWritePaths = [ "${this.config.services.minecraft-servers.dataDir}/gregtech-nh" ];
+          RestrictAddressFamilies = lib.mkForce [ "AF_INET" "AF_UNIX" ];
         };
       };
 

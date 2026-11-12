@@ -107,6 +107,10 @@ in
         };
 
         systemd.services.frp-frpc = {
+          # note: isolated to it's own network namespace
+          # services meant to be exposed must opt in too.
+          egress-only = true;
+
           unitConfig.RequiresMountsFor = [ cfg.stateDir ];
 
           serviceConfig = {

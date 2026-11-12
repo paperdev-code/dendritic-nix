@@ -31,6 +31,7 @@
       boot
       common
       cpu.amd
+      egress-only
       hardware.blaze-seven
       persistence
       performance
