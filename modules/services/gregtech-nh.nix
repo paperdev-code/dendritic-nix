@@ -58,7 +58,23 @@
           ProtectSystem = "strict";
           NoNewPrivileges = true;
           ReadWritePaths = [ "${this.config.services.minecraft-servers.dataDir}/gregtech-nh" ];
-          RestrictAddressFamilies = lib.mkForce [ "AF_INET" "AF_UNIX" ];
+          RestrictAddressFamilies = lib.mkForce [
+            "AF_INET"
+            "AF_UNIX"
+          ];
+          SystemCallFilter = [
+            "~@clock"
+            "~@cpu-emulation"
+            "~@debug"
+            "~@module"
+            "~@mount"
+            "~@obsolete"
+            "~@raw-io"
+            "~@reboot"
+            "~@resources"
+            "~@swap"
+          ];
+          RemoveIPC = true;
         };
       };
 
