@@ -21,7 +21,7 @@
 
           serverProperties = {
             server-port = 10265;
-            server-address = "localhost";
+            server-ip = "127.0.0.1";
 
             enable-rcon = false;
             enable-query = false;
