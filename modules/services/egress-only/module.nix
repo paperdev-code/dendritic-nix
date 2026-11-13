@@ -36,6 +36,30 @@ in
     let
       cfg = this.config.services.egress-only;
       resolvConf = "/etc/egress-only/resolv.conf";
+
+      serviceModule = this: {
+
+        options.egress-only = mkOption {
+          type = types.bool;
+          default = false;
+        };
+
+        config = mkIf this.config.egress-only {
+          requires = [ "${unitName}.service" ];
+          after = [ "${unitName}.service" ];
+
+          serviceConfig = {
+            NetworkNamespacePath = mkForce nsPath;
+            # in case something happens with the firewall
+            # this will ensure it's still blocked (sort of)
+            IPAddressDeny = mkForce blockedRanges;
+            IPAddressAllow = mkForce [ ];
+
+            # their own nameservers, in case host's wouldn't be reachable.
+            BindReadOnlyPaths = [ "${resolvConf}:/etc/resolv.conf" ];
+          };
+        };
+      };
     in
     {
       options.services.egress-only.nameservers = mkOption {
@@ -47,33 +71,7 @@ in
       };
 
       options.systemd.services = mkOption {
-        type = types.attrsOf (
-          types.submodule (
-            { config, ... }:
-            {
-              options.egress-only = mkOption {
-                type = types.bool;
-                default = false;
-              };
-
-              config = mkIf config.egress-only {
-                requires = [ "${unitName}.service" ];
-                after = [ "${unitName}.service" ];
-
-                serviceConfig = {
-                  NetworkNamespacePath = mkForce nsPath;
-                  # in case something happens with the firewall
-                  # this will ensure it's still blocked (sort of)
-                  IPAddressDeny = mkForce blockedRanges;
-                  IPAddressAllow = mkForce [ ];
-
-                  # their own nameservers, in case host's wouldn't be reachable.
-                  BindReadOnlyPaths = [ "${resolvConf}:/etc/resolv.conf" ];
-                };
-              };
-            }
-          )
-        );
+        type = with types; attrsOf (submodule serviceModule);
       };
 
       config = {
@@ -81,9 +79,7 @@ in
           {
             assertion = this.config.networking.nftables.enable;
             message = ''
-              systemd.services.<name>.egress-only requires networking.nftables.enable,
-              which this flake sets in modules/misc/networking.nix. Re-enable it or
-              drop the egress-only flags.
+              systemd.services.<name>.egress-only relies on nftable rules
             '';
           }
         ];
@@ -98,13 +94,14 @@ in
         boot.kernel.sysctl."net.ipv4.conf.all.forwarding" = true;
 
         # filter forwarding to ensure only intended interfaces may do so.
-        networking.firewall.filterForward = true;
-        networking.firewall.extraForwardRules = ''
-          iifname "${hostVeth}" accept
-        '';
+        networking.firewall = {
+          filterForward = true;
+          extraForwardRules = ''
+            iifname "${hostVeth}" accept
+          '';
+        };
 
         systemd.services.${unitName} = {
-          description = "Egress-only network namespace";
           wantedBy = [ "multi-user.target" ];
           before = [ "network.target" ];
           restartIfChanged = false;
