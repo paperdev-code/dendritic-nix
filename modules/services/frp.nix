@@ -107,8 +107,11 @@ in
         };
 
         systemd.services.frp-client = {
+          # note: works on a schedule to limit availability
+          working-hours = true;
+
           # note: isolated to it's own network namespace
-          # services meant to be exposed must opt in too.
+          # services meant to be exposed through the proxy must opt in too.
           egress-only = true;
 
           unitConfig.RequiresMountsFor = [ cfg.stateDir ];
