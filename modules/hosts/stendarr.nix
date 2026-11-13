@@ -41,6 +41,7 @@
       services.openssh
       stubs
       users.default.jorn
+      working-hours
       zswap
     ];
 
