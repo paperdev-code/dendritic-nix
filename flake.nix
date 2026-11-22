@@ -9,6 +9,7 @@
   inputs.nix.url = "github:NixOS/nix?ref=master";
   inputs.nix.flake = false;
   inputs.nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
+  inputs.nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-26.05";
   inputs.minecraft.url = "github:infinidoge/nix-minecraft?ref=master";
   inputs.minecraft.flake = false;
   inputs.noctalia.url = "github:noctalia-dev/noctalia?ref=v5.4.1";

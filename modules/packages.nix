@@ -7,8 +7,10 @@
 let
   inherit (lib)
     filter
+    functionArgs
     genAttrs
     getName
+    intersectAttrs
     mkMerge
     ;
   allSystems = import inputs.systems;
@@ -21,7 +23,7 @@ let
 
   pkgs = genAttrs allSystems (system: inputs.nixpkgs.legacyPackages.${system});
 
-  unfreePkgs = genAttrs allSystems (
+  unfreePkgs = eachSystem (
     system:
     import inputs.nixpkgs {
       inherit system;
@@ -29,10 +31,23 @@ let
     }
   );
 
+  packageInputOverrides = eachSystem (system: {
+    jdk25_headless = inputs.nixpkgs-stable.legacyPackages.${system}.jdk25_headless;
+  });
+
+  callPackage =
+    pkgs: path:
+    let
+      packageInputs = intersectAttrs (functionArgs (
+        import path
+      )) packageInputOverrides.${pkgs.stdenv.hostPlatform.system};
+    in
+    pkgs.callPackage path packageInputs;
+
   allPackages =
     pred: pkgs:
     packagePaths
-    |> map (path: pkgs.callPackage path { })
+    |> map (callPackage pkgs)
     |> filter pred
     |> toAttrs
     |> mkMerge;
