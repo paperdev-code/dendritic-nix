@@ -62,7 +62,7 @@ let
       name = "formatter";
       text = ''
         ${updateReadmePkg}/bin/update-readme
-        ${treefmtPkg}/bin/treefmt
+        ${treefmtPkg}/bin/treefmt "$@"
       '';
     };
 in
@@ -82,7 +82,7 @@ in
           cp -r ${inputs.self} $SRC
           chmod -R a+w $SRC
           cd $SRC
-          treefmt --fail-on-change
+          formatter --fail-on-change
           touch $out
         '';
   });
