@@ -11,11 +11,11 @@ let
   inherit (lib) concatStringsSep;
 
   pname = "gregtech-nh-server";
-  version = "2.9.0";
+  version = "2.9.2";
 
   src = fetchzip {
     url = "https://downloads.gtnewhorizons.com/ServerPacks/GT_New_Horizons_${version}_Server_Java_17-26.zip";
-    hash = "sha256-V3lydaIPUH7FifGSR+nNVAXwdmGi4T2mFrRwWfEBEcc=";
+    hash = "sha256-pPTXR53sNQ5OFIHk0kYAwC+3jLabJluE8nNtqWrrT7I=";
     stripRoot = false;
     postFetch = ''
       unzip -j $out/mods/industrialcraft-2-*.jar lib/EJML-core-0.26.jar -d $out/mods/ic2
