@@ -22,7 +22,7 @@ let
       };
 
       devShells = mkOption {
-        type = with types; lazyAttrsOf package;
+        type = with types; lazyAttrsOf (attrsOf package);
       };
 
       formatter = mkOption {
