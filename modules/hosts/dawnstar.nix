@@ -34,6 +34,7 @@
       cpu.amd
       common
       desktop
+      direnv
       hjem
       gaming
       gpu.nvidia
