@@ -48,7 +48,7 @@ in
       });
 
       checks = eachSystem (pkgs: {
-        readme-diff = pkgs.runCommand "readme-diff" { } ''
+        readme-diff = pkgs.runCommandLocal "readme-diff" { } ''
           generated=${inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.readme}
           current=${../README.md}
           ${pkgs.git}/bin/git --no-pager diff --no-index --color=auto -- "$generated" "$current"
