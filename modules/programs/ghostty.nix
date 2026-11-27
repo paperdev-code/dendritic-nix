@@ -11,7 +11,10 @@
       ".local/share/ghostty"
     ];
 
-    files.".config/ghostty/config.ghostty".source = paths.dotfile "ghostty/config.ghostty";
+    files.".config/ghostty/config.ghostty" = {
+      source = paths.dotfile "ghostty/config.ghostty";
+      type = "copy";
+    };
   };
 
   modules.programs.umbriel.hjem = _: {
