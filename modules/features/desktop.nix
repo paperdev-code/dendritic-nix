@@ -3,6 +3,7 @@
   modules.desktop.nixos = _: {
     imports = with config.classes.nixos; [
       keyring
+      programs.luciole
       programs.noctalia
       programs.noctalia-greeter
       programs.umbriel

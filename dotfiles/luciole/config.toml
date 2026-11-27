@@ -1,0 +1,7 @@
+schema_version = 1
+
+[browser]
+density = "compact"
+filename_truncation = "middle"
+view_mode = "list"
+thumbnail_policy = "local"

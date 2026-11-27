@@ -6,6 +6,8 @@
   inputs.llm-agents.url = "github:numtide/llm-agents.nix";
   inputs.llm-agents.inputs.nixpkgs.follows = "nixpkgs";
   inputs.llm-agents.inputs.systems.follows = "systems";
+  inputs.luciole.url = "github:noctalia-dev/luciole?ref=main";
+  inputs.luciole.inputs.nixpkgs.follows = "nixpkgs";
   inputs.minecraft.url = "github:infinidoge/nix-minecraft?ref=master";
   inputs.minecraft.flake = false;
   inputs.nix.url = "github:NixOS/nix?ref=master";
