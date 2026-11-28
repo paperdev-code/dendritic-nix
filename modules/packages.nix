@@ -31,8 +31,10 @@ let
     }
   );
 
-  packageInputOverrides = eachSystem (system: {
-    jdk25_headless = inputs.nixpkgs-stable.legacyPackages.${system}.jdk25_headless;
+  packageInputOverrides = eachSystem (_: {
+    # override packages used as inputs of derivations in ../packages/
+    # for ex.
+    # foo = inputs.stable.legacyPackages.${system}.foo-with-mitigations;
   });
 
   callPackage =
